@@ -1,0 +1,34 @@
+name: Build APK
+
+on:
+  push:
+    branches:
+      - '**' # Trigger for any branch
+  pull_request:
+    branches:
+      - '**' # Trigger for any branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install Flutter
+      run: |
+        git clone https://github.com/flutter/flutter.git -b stable
+        echo "${{ github.workspace }}/flutter/bin" >> $GITHUB_PATH
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    - name: Build APK
+      run: flutter build apk --release
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-release
+        path: build/app/outputs/flutter-apk/app-release.apk
