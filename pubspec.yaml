@@ -38,6 +38,7 @@ dependencies:
   get: null
   dio: null
   flutter_svg: null
+  connectivity_plus: null
 
 dev_dependencies:
   flutter_test:

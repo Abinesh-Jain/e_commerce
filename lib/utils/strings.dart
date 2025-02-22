@@ -14,4 +14,5 @@ class Strings {
   static const share = 'Share';
   static const cancel = 'Cancel';
   static const close = 'Close';
+  static const refresh = 'Refresh';
 }

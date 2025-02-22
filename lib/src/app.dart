@@ -12,7 +12,6 @@ class App extends StatelessWidget {
     return GetMaterialApp(
       getPages: Routes.pages,
       theme: AppThemes.light,
-      darkTheme: AppThemes.dark,
     );
   }
 }

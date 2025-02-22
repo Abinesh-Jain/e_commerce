@@ -82,16 +82,22 @@ class _PaginatorState<T> extends State<Paginator<T>> {
           ),
         );
       } else {
-        return const Center(
+        return Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
+              const Icon(
                 Icons.hourglass_empty,
                 size: 100,
               ),
-              SizedBox(height: 16),
-              Text(Strings.noDataFound),
+              const SizedBox(height: 16),
+              const Text(Strings.noDataFound),
+              const SizedBox(height: 16),
+              TextButton.icon(
+                onPressed: refresh,
+                icon: const Icon(Icons.refresh),
+                label: const Text(Strings.refresh),
+              ),
             ],
           ),
         );
