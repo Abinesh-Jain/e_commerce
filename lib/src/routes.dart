@@ -1,20 +1,25 @@
-import '../pages/cart_page.dart';
-import '../pages/checkout_page.dart';
-import '../pages/product_details_page.dart';
-import '../pages/product_page.dart';
+import 'package:get/get.dart';
+
+import '../pages/home_page/home_page.binding.dart';
+import '../pages/home_page/home_page.view.dart';
+import '../pages/marketplace_detail_page/marketplace_detail_page.binding.dart';
+import '../pages/marketplace_detail_page/marketplace_detail_page.view.dart';
 
 class Routes {
-  static const String home = '/';
-  static const String products = '/products';
-  static const String productDetails = '/product-details';
-  static const String cart = '/cart';
-  static const String checkout = '/checkout';
+  static const home = '/';
+  static const request = '/request';
 
-  static final routes = {
-    home: (context) => const ProductPage(),
-    products: (context) => const ProductPage(),
-    productDetails: (context) => const ProductDetailsPage(),
-    cart: (context) => const CartPage(),
-    checkout: (context) => const CheckoutPage(),
-  };
+  static List<GetPage> pages = [
+    GetPage(
+      name: Routes.home,
+      page: () => HomePageView(),
+      binding: HomePageBinding(),
+    ),
+    GetPage(
+      name: Routes.request,
+      page: () => MarketplaceDetailPageView(),
+      binding: MarketplaceDetailPageBinding(),
+    ),
+  ];
+  
 }
